@@ -116,7 +116,7 @@ export default Home;
 export const getServerSideProps = async () => {
   // Fetch data from external API
   const res = await fetch(
-    'https://random-word-api.herokuapp.com/word?number=5000'
+    'https://random-word-api.herokuapp.com/word?number=500'
   );
   const data: string[] = await res.json();
 

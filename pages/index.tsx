@@ -4,6 +4,7 @@ import Head from 'next/head';
 import axios from 'axios';
 import { FormEvent, useRef, useState } from 'react';
 import { Trie } from '../utils/Trie';
+import dataset from '../utils/dataset';
 
 interface Props {
   data: string[];
@@ -114,11 +115,7 @@ export default Home;
 
 // This gets called on every request
 export const getServerSideProps = async () => {
-  // Fetch data from external API
-  const res = await fetch(
-    'https://random-word-api.herokuapp.com/word?number=10000'
-  );
-  const data: string[] = await res.json();
+  const data: string[] = dataset;
 
   // Pass data to the page via props
   return { props: { data } };
